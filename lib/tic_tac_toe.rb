@@ -14,7 +14,7 @@ class TicTacToe
     [2, 4, 6]  #diagonal2
   ]
 
-  def display_@board
+  def display_sboard
     print " #{@board[0]} " "|" " #{@board[1]} " "|" " #{@board[2]} \n"
     print "-----------\n"
     print " #{@board[3]} " "|" " #{@board[4]} " "|" " #{@board[5]} \n"
