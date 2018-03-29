@@ -147,7 +147,7 @@ class TicTacToe
   #   3) If winning_combo does not equal 0 (meaning that it's value was changed -- presumably to the winning combo), then return the combo. Else, return false.
   # Returns: True, if won. False, if not won.
 
-  def won?(@board)
+  def won?
     winning_combo = 0
     WIN_COMBINATIONS.each do |combo_array|
       win_index_1 = combo_array[0]
@@ -183,7 +183,7 @@ class TicTacToe
   # Returns: True, if full. False, if not full.
 
 
-  def full?(@board)
+  def full?
     all_full = @board.all? do |value|
       value.include?("X") || value.include?("O")
     end
@@ -197,7 +197,7 @@ class TicTacToe
   #   2) Return true (there is a draw). Else, return false (there is not a draw)
   # Purpose: True, if draw. False, if not draw.
 
-  def draw?(@board)
+  def draw?
     if full?(@board) == true && won?(@board) == false
       return true
     else
@@ -214,7 +214,7 @@ class TicTacToe
   #   3) Otherwise, it's not over.
   # Returns: True, if over. False, if not.
 
-  def over?(@board)
+  def over?
     if won?(@board) != false
       return true
     elsif draw?(@board) == true
@@ -228,7 +228,7 @@ class TicTacToe
   # Arguments: @board
   # Purpose: Contains the logic from won?, but returns the winning person.
 
-  def winner_function(@board)
+  def winner_function
     winning_combo = 0
     winning_person = 0
     WIN_COMBINATIONS.each do |combo_array|
@@ -260,7 +260,7 @@ class TicTacToe
   # Arguments: winner
   # Purpose: Checks to see if the game has been won. If so, then it returns the winner.
 
-  def winner(@board)
+  def winner
     store_person = winner_function(@board)
     store_combo = won?(@board)
     if store_combo == false
