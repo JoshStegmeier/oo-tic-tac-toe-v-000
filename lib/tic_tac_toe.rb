@@ -70,8 +70,8 @@ class TicTacToe
   # Arguments: This methods accepts an array, and index, and a value
   # Purpose: Changes the value of a position in an array to the user's character (X or O).
 
-  def move(array, index, value)
-    array[index] = value
+  def move(index, value)
+    @board[index] = value
   end
 
   # position_taken?
