@@ -38,9 +38,9 @@ class TicTacToe
   #   1) set variable counter = 0
   #   2) for each position in the board array: If the position is not filled, do nothing. If it is filled, increment the counter by 1.
 
-  def turn_count(board)
+  def turn_count
     counter = 0
-    board.each do |spot|
+    @board.each do |spot|
       if spot.strip == ""
 
       else
@@ -56,8 +56,8 @@ class TicTacToe
   #   1) set variable "val" to the returned value from turn_count
   #   2) if "val" is even, then return X. Else, return O.
 
-  def current_player(board)
-    val = turn_count(board)
+  def current_player
+    val = turn_count(@board)
     if val % 2 == 0
       return "X"
     else
@@ -79,10 +79,10 @@ class TicTacToe
   # Purpose: Checks to see if the position is taken.
   # Returns: True, if taken. False, if free.
 
-  def position_taken?(board, index)
-    if board[index] == nil
+  def position_taken?(index)
+    if @board[index] == nil
       false
-    elsif board[index].strip == ""
+    elsif @board[index].strip == ""
       false
     else
       true
@@ -98,11 +98,11 @@ class TicTacToe
   #   3) Position must not be taken.
   # Returns: True, if valid move. False, if invalid move.
 
-  def valid_move?(board, index)
+  def valid_move?(index)
     val = index.to_i
     if val < 0 || val > 8
       false
-    elsif position_taken?(board, index) == true
+    elsif position_taken?(@board, index) == true
       false
     else
       true
@@ -126,12 +126,12 @@ class TicTacToe
     puts "Please enter 1-9:"
     input = gets.strip
     index = input_to_index(input)
-    character_turn = current_player(board)
-    if valid_move?(board, index)
+    character_turn = current_player(@board)
+    if valid_move?(@board, index)
       move(@board, index, character_turn)
-      display_board(board)
+      display_board(@board)
     else
-      turn(board)
+      turn(@board)
     end
   end
 
