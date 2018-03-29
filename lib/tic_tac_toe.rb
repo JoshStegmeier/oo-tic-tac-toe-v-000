@@ -57,7 +57,7 @@ class TicTacToe
   #   2) if "val" is even, then return X. Else, return O.
 
   def current_player
-    val = turn_count(@board)
+    val = turn_count
     if val % 2 == 0
       return "X"
     else
@@ -126,12 +126,12 @@ class TicTacToe
     puts "Please enter 1-9:"
     input = gets.strip
     index = input_to_index(input)
-    character_turn = current_player(@board)
-    if valid_move?(@board, index)
-      move(@board, index, character_turn)
-      display_board(@board)
+    character_turn = current_player
+    if valid_move?(index)
+      move(index, character_turn)
+      display_board
     else
-      turn(@board)
+      turn
     end
   end
 
@@ -198,7 +198,7 @@ class TicTacToe
   # Purpose: True, if draw. False, if not draw.
 
   def draw?
-    if full?(@board) == true && won?(@board) == false
+    if full? == true && won? == false
       return true
     else
       return false
@@ -215,9 +215,9 @@ class TicTacToe
   # Returns: True, if over. False, if not.
 
   def over?
-    if won?(@board) != false
+    if won? != false
       return true
-    elsif draw?(@board) == true
+    elsif draw? == true
       return true
     else
       return false
@@ -261,8 +261,8 @@ class TicTacToe
   # Purpose: Checks to see if the game has been won. If so, then it returns the winner.
 
   def winner
-    store_person = winner_function(@board)
-    store_combo = won?(@board)
+    store_person = winner_function
+    store_combo = won?
     if store_combo == false
       return nil
     elsif store_person == "X"
@@ -276,14 +276,14 @@ class TicTacToe
 
   def play
 
-    while over?(@board) == !true
-      turn(@board)
+    while over? == !true
+      turn
     end
 
-    if winner(@board) == "X" || winner(@board) == "O"
-      winning_char = winner(@board)
+    if winner == "X" || winner == "O"
+      winning_char = winner
       puts "Congratulations #{winning_char}!"
-    elsif draw?(@board) == true
+    elsif draw? == true
       puts "Cat's Game!"
     end
   end
