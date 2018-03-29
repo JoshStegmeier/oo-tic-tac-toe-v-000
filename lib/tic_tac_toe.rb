@@ -128,7 +128,7 @@ class TicTacToe
     index = input_to_index(input)
     character_turn = current_player(board)
     if valid_move?(board, index)
-      move(board, index, character_turn)
+      move(@board, index, character_turn)
       display_board(board)
     else
       turn(board)
@@ -287,5 +287,5 @@ class TicTacToe
       puts "Cat's Game!"
     end
   end
-  
+
 end
