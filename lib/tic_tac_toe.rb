@@ -129,7 +129,7 @@ class TicTacToe
     character_turn = current_player(@board)
     if valid_move?(@board, index)
       move(@board, index, character_turn)
-      display_@board(@board)
+      display_board(@board)
     else
       turn(@board)
     end
